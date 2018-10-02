@@ -1,0 +1,30 @@
+<h1>Report Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Report Status</th>
+      <th>Invoice Start Date</th>
+      <th>Invoice End Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.status %></td>
+        <td><%= report.start_date %></td>
+        <td><%= report.end_date %></td>
+        <td><%= link_to "Preview", report %></td>
+        <td><%= link_to 'Delete', report,
+          data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        <td><%= link_to 'download', rails_blob_path(report.csv_download,
+          disposition: "attachment") if report.csv_download.attached? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Report", new_report_path %>

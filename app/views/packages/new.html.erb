@@ -1,0 +1,19 @@
+<h1>New Package</h1>
+
+<%= form_for @package, url: {action: "create"} do |f| %>
+  <%= f.collection_select(:invoice_id, Invoice.all, :id, :reference_number) %>
+  <%= label :invoice_id, 'Invoices'%><br />
+  <%= f.text_field :tracking_number %>
+  <%= label :tracking_number, 'Tracking Number'%><br />
+  <%= f.text_field :service_name %>
+  <%= label :service_name, 'Service Name'%><br />
+  <%= f.date_field :ship_date %>
+  <%= label :ship_date, 'Ship Date' %><br />
+  <%= f.date_field :delivery_date %>
+  <%= label :delivery_date, 'Delivery Date' %><br />
+  <%= f.date_field :expected_delivery_date %>
+  <%= label :expected_delivery_date, 'Expected Deliveyr Date' %><br />
+  <%= f.submit "Create Package" %>
+<% end %>
+
+<%= link_to 'Back to Packages', packages_url %>

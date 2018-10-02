@@ -1,0 +1,31 @@
+<h1>My Packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tracking Number</th>
+      <th>Service Name</th>
+      <th>Ship Date</th>
+      <th>Delivery Date</th>
+      <th>Expected Delivery Date</th>
+      <th>Invoice ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+      <tr>
+        <td><%= package.tracking_number %></td>
+        <td><%= package.service_name %></td>
+        <td><%= package.ship_date %></td>
+        <td><%= package.delivery_date %></td>
+        <td><%= package.expected_delivery_date %></td>
+        <td><%= package.invoice_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Package", new_package_path %>

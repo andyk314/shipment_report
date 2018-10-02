@@ -1,0 +1,33 @@
+<h1>Invoice Summary Report</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice Type</th>
+      <th>Invoice Date</th>
+      <th>Invoice Amount</th>
+      <th>Invoice Reference Number</th>
+      <th>Number of Packages</th>
+      <th>Number of Unique Services</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.invoice_type %></td>
+        <td><%= report.invoice_date %></td>
+        <td><%= report.invoice_amount %></td>
+        <td><%= report.invoice_reference_number %></td>
+        <td><%= report.number_of_packages %></td>
+        <td><%= report.number_of_unique_service_names %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Generate Repport(CSV)", csv_path %>
+
+<%= link_to "Back to Reports", reports_url %>

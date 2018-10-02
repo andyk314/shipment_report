@@ -1,0 +1,27 @@
+<h1>My Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice Type</th>
+      <th>Invoice Date</th>
+      <th>Invoice Amount</th>
+      <th>Reference Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.invoice_type %></td>
+        <td><%= invoice.invoice_date %></td>
+        <td><%= invoice.invoice_amount %></td>
+        <td><%= invoice.reference_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Invoice", new_invoice_path %>
